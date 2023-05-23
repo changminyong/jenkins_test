@@ -1,6 +1,0 @@
-jobs:
-  TEST:
-  runs-on: ubuntu-latest
-  if: true
-    steps:
-    - run : echo "test"
