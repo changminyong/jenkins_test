@@ -1,33 +1,11 @@
 
 // PIPELINE
 pipeline {
-  agent none
-  
+  agent any
   stages {
-    stage('PRE-PROCESS') {
-      agent none
-      steps {
-        script {
-            bat 'echo test'
-        }
-      }
-      post {
-        always {
-          cleanWs notFailBuild: true
-        }
-      }
-    }
-    
-    stage('Build and Test') {
+    stage('test') {
         steps {
-            script {
-                bat 'echo test'
-            }
-        }
-        post {
-            always {
-              cleanWs notFailBuild: true
-            }
+            bat 'echo test'
         }
     }
   }
