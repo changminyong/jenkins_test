@@ -5,9 +5,7 @@ pipeline {
   
   stages {
     stage('PRE-PROCESS') {
-      agent {
-        label 'windows'
-      }
+      agent none
       steps {
         script {
             bat 'echo test'
