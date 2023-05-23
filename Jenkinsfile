@@ -6,11 +6,11 @@ pipeline {
   stages {
     stage('PRE-PROCESS') {
       agent {
-        label 'linux'
+        label 'windows'
       }
       steps {
         script {
-            echo "test"
+            bat 'echo test'
         }
       }
       post {
@@ -23,7 +23,7 @@ pipeline {
     stage('Build and Test') {
         steps {
             script {
-                echo "build and test"
+                bat 'echo test'
             }
         }
         post {
