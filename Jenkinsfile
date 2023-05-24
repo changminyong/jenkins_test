@@ -1,18 +1,12 @@
 
 // PIPELINE
 pipeline {
-  agent none
-  
+  agent any
   stages {
-    stage('PRE-PROCESS') {
-      agent {
-        label 'linux'
-      }
-      steps {
-        script {
-            echo "test"
+    stage('test') {
+        steps {
+            bat 'echo test'
         }
-      }
     }
   }
 }
