@@ -66,6 +66,7 @@ pipeline {
     stage('ProcessWebHook') {
       steps {
           script {
+            echo "json to app"
             echo "Received a Webhook Request from Guthub."
             echo "RepoName: $REPO_NAME"
             
