@@ -16,3 +16,4 @@ whitelist test
 test
 test
 webhook push test
+webhook test json
