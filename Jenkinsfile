@@ -1,10 +1,12 @@
+
 properties(
   [
     parameters([
-      booleanParam(defaultValue: false, description: 'if merged', name: 'IF_MERGED')
+      booleanParam(defaultValue: false, description: 'if merged', name: '$.pull_request.merged')
     ])
   ]
 )
+
 
 // PIPELINE
 pipeline {
@@ -13,17 +15,19 @@ pipeline {
     stage('test') {
       steps {
           bat 'echo test'
+          echo "env:  ${env.getEnvironment()}"
+          
       }
     }
-    stage('merged') {
-      when {
-        expression { params.IF_MERGED == true }
-      }
+  //   stage('merged') {
+  //     when {
+  //       expression { params.IF_MERGED == true }
+  //     }
       
-      steps {
-          bat 'echo merged'
-      }
-    }
+  //     steps {
+  //         bat 'echo merged'
+  //     }
+  //   }
   }
   
 }
