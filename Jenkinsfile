@@ -1,4 +1,5 @@
-import groovy.json.JsonOutput
+// import groovy.json.JsonOutput
+
 
 properties(
   [
@@ -8,15 +9,16 @@ properties(
   ]
 )
 
-def result = httpRequest(
-    httpMode: "GET",
-    url: "https://api.github.com/repos/test-user/test-repository/pulls",
-    contentType: "APPLICATION_JSON_UTF8",
-    customHeaders: [[name: "Authorization", value: "token 1a35c322bf25a98dca3d104c5fe0d43b3fbd3c9c"]],
-    consoleLogResponseBody: true,
-    requestBody: JsonOutput.toJson(body),  // JsonOutput은 한글 깨짐 현상이 발생하므로 주의
-    timeout: 5000
-)
+// def result = httpRequest(
+//     httpMode: "GET",
+//     url: "https://api.github.com/repos/test-user/test-repository/pulls",
+//     contentType: "APPLICATION_JSON_UTF8",
+//     customHeaders: [[name: "Authorization", value: "token 1a35c322bf25a98dca3d104c5fe0d43b3fbd3c9c"]],
+//     consoleLogResponseBody: true,
+//     requestBody: JsonOutput.toJson(body),  // JsonOutput은 한글 깨짐 현상이 발생하므로 주의
+//     timeout: 5000
+// )
+
 
 // PIPELINE
 pipeline {
@@ -39,6 +41,7 @@ pipeline {
   }
   stages {
     stage('test') {
+      def jsonSlurper = new JsonSlurper()
       steps {
           bat 'echo test'
           echo "env:  ${env.getEnvironment()}"
