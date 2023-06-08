@@ -7,21 +7,6 @@ properties(
   ]
 )
 
-triggers {
-    GenericTrigger(
-     genericVariables: [
-      [key: 'REPO_NAME', value: '$.repository.name', defaultValue: 'null'],
-      [key: 'PR_TYPE', value: '$.pullrequest.type', defaultValue: 'null']
-     ],
-     causeString: 'Triggered By Github',
-     token: '12345678',
-     tokenCredentialId: '',
-     printContributedVariables: true,
-     printPostContent: true,
-     silentResponse: false
-    )
-  }
-
 // PIPELINE
 pipeline {
   agent any
