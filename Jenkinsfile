@@ -1,79 +1,47 @@
 
-// properties(
-//   [
-//     parameters([
-//       booleanParam(defaultValue: false, description: 'if merged', name: '$.pull_request.merged')
-//     ])
-//   ]
-// )
+properties(
+  [
+    parameters([
+      booleanParam(defaultValue: false, description: 'if merged', name: 'IF_MERGED')
+    ])
+  ]
+)
 
-// triggers {
-//     GenericTrigger(
-//      genericVariables: [
-//       [key: 'REPO_NAME', value: '$.repository.name', defaultValue: 'null'],
-//       [key: 'PR_TYPE', value: '$.pullrequest.type', defaultValue: 'null']
-//      ],
-//      causeString: 'Triggered By Github',
-//      token: '12345678',
-//      tokenCredentialId: '',
-//      printContributedVariables: true,
-//      printPostContent: true,
-//      silentResponse: false
-//     )
-//   }
-
-// // PIPELINE
-// pipeline {
-//   agent any
-//   stages {
-//     stage('test') {
-//       steps {
-//           bat 'echo test'
-//           echo "env:  ${env.getEnvironment()}"
-          
-//       }
-//     }
-//   //   stage('merged') {
-//   //     when {
-//   //       expression { params.IF_MERGED == true }
-//   //     }
-      
-//   //     steps {
-//   //         bat 'echo merged'
-//   //     }
-//   //   }
-//   }
-  
-// }
-
-
-
-pipeline {
-  agent any
-  triggers {
+triggers {
     GenericTrigger(
      genericVariables: [
       [key: 'REPO_NAME', value: '$.repository.name', defaultValue: 'null'],
       [key: 'PR_TYPE', value: '$.pullrequest.type', defaultValue: 'null']
      ],
      causeString: 'Triggered By Github',
-     token: 'test',
+     token: '12345678',
      tokenCredentialId: '',
      printContributedVariables: true,
      printPostContent: true,
      silentResponse: false
     )
   }
+
+// PIPELINE
+pipeline {
+  agent any
   stages {
-    stage('ProcessWebHook') {
+    stage('test') {
       steps {
-          script {
-            echo "json to app"
-            echo "Received a Webhook Request from Guthub."
-            echo "RepoName: $REPO_NAME"
-            
-          }
+          bat 'echo test'
+          echo "env:  ${env.getEnvironment()}"
+          
+      }
+    }
+    stage('merged') {
+      when {
+        expression { params.IF_MERGED == true }
+      }
+      
+      steps {
+          bat 'echo merged'
       }
     }
   }
+  
 }
