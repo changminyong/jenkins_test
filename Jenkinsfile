@@ -55,7 +55,7 @@ pipeline {
       [key: 'PR_TYPE', value: '$.pullrequest.type', defaultValue: 'null']
      ],
      causeString: 'Triggered By Github',
-     token: '12345678',
+     token: 'test',
      tokenCredentialId: '',
      printContributedVariables: true,
      printPostContent: true,
