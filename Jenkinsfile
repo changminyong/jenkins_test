@@ -27,11 +27,10 @@ pipeline {
   }
   stages {
     stage('test') {
-      
-      def jsonObj = readJSON text: jsonString
       steps {
           bat 'echo test'
-          bat 'echo jsonObj : ${jsonObj}'
+          echo "env:  ${env.getEnvironment()}"
+          
       }
     }
   //   stage('merged') {
