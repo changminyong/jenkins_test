@@ -29,6 +29,7 @@ pipeline {
     stage('test') {
       steps {
           bat 'echo test'
+          bat 'echo merged : ${merged}'
       }
     }
   //   stage('merged') {
