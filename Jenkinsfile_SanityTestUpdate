@@ -1,0 +1,30 @@
+
+properties(
+  [
+    parameters([
+      booleanParam(defaultValue: false, description: 'if merged', name: 'IF_MERGED')
+    ])
+  ]
+)
+
+// PIPELINE
+pipeline {
+  agent any
+  stages {
+    stage('PRE-PROCESS-SANITY-TEST-UPDATE') {
+      steps {
+          bat 'echo PRE-PROCESS-SANITY-TEST-UPDATE'
+      }
+    }
+    stage('merged') {
+      when {
+        expression { params.IF_MERGED == true }
+      }
+      
+      steps {
+          bat 'echo merged'
+      }
+    }
+  }
+  
+}
