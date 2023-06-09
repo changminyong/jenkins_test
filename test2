@@ -4,3 +4,4 @@ update Jenkins URL
 update Jenkins URL in Pull Request Builder config
 update pipeline
 use githook in pull reqeust builder
+GitHub hook trigger for GITScm polling
