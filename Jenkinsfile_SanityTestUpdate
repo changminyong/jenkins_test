@@ -23,6 +23,10 @@ pipeline {
       
       steps {
           bat 'echo merged'
+          bat(
+          script: 'git rev-parse --short=9 HEAD',
+          returnStdout: true
+        )
       }
     }
   }
