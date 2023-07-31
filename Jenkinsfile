@@ -13,6 +13,7 @@ properties(
 class Global {
   static def GIT_COMMIT = null
 }
+def test = null
 
 // PIPELINE
 pipeline {
@@ -22,7 +23,7 @@ pipeline {
       steps {
           // bat 'echo test'
           // echo "env:  ${env.getEnvironment()}"
-          Global.GIT_COMMIT = 1
+          test = 1
           bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true)
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           
