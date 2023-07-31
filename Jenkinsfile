@@ -35,7 +35,7 @@ pipeline {
           echo "test :  ${test}"
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           echo "Global.BASE_RESULT_PATH_WIN :  ${Global.BASE_RESULT_PATH_WIN}"
-          bat(script: 'move ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}')
+          bat("move ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}")
 
           
       }
