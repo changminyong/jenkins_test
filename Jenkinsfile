@@ -12,7 +12,7 @@ properties(
 // GLOBALS
 class Global {
   static def GIT_COMMIT = null
-  static def Global.BASE_RESULT_PATH_WIN = null
+  static def BASE_RESULT_PATH_WIN = null
 }
 
 // PIPELINE
