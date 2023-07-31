@@ -41,7 +41,7 @@ pipeline {
           echo "Global.UPDATE_CASE :  ${Global.UPDATE_CASE}"
           echo "env.GIT_COMMIT :  ${env.GIT_COMMIT}"
           echo "env.GIT_PREVIOUS_COMMIT :  ${env.GIT_PREVIOUS_COMMIT}"
-          echo "${env.GIT_COMMIT} > ${Global.BASE_RESULT_PATH_WIN}\\commit_id.txt" 
+          echo "echo ${env.GIT_COMMIT} > ${Global.BASE_RESULT_PATH_WIN}\\commit_id.txt" 
 
           
       }
