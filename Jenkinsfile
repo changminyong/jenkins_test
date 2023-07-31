@@ -14,6 +14,7 @@ class Global {
   static def GIT_COMMIT = null
   static def BASE_RESULT_PATH_WIN = null
   static def UPDATE_CASE = 1
+  static def TEST = 2
 }
 
 // PIPELINE
@@ -44,7 +45,9 @@ pipeline {
     }
     stage('test 2') {
       when {
-        expression { Global.UPDATE_CASE == 1 }
+        expression { 
+          Global.UPDATE_CASE == 1 &&
+          Global.TEST == 2}
       }
       
       steps {
