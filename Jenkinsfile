@@ -37,6 +37,7 @@ pipeline {
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           echo "Global.BASE_RESULT_PATH_WIN :  ${Global.BASE_RESULT_PATH_WIN}"
           bat("copy ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}")
+          echo "Global.UPDATE_CASE :  ${Global.UPDATE_CASE}"
 
           
       }
