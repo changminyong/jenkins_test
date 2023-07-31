@@ -22,7 +22,7 @@ pipeline {
       steps {
           // bat 'echo test'
           // echo "env:  ${env.getEnvironment()}"
-          Global.GIT_COMMIT = bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true)
+          bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true)
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           
       }
