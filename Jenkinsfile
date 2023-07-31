@@ -13,6 +13,7 @@ properties(
 class Global {
   static def GIT_COMMIT = null
   static def BASE_RESULT_PATH_WIN = null
+  static def UPDATE_CASE = 1
 }
 
 // PIPELINE
@@ -35,9 +36,20 @@ pipeline {
           echo "test :  ${test}"
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           echo "Global.BASE_RESULT_PATH_WIN :  ${Global.BASE_RESULT_PATH_WIN}"
-          bat("move ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}")
+          bat("copy ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}")
 
           
+      }
+    }
+    stage('test 2') {
+      when {
+        expression { Global.UPDATE_CASE == 1 }
+      }
+      
+      steps {
+          bat 'echo UPDATE_CASE'
+          // bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true).trim()
+          // echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
       }
     }
     stage('merged') {
