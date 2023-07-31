@@ -31,7 +31,7 @@ pipeline {
             Global.GIT_COMMIT = bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true).trim()
             Global.BASE_RESULT_PATH_WIN = "C:\\Jenkins\\sanity_check\\base_results\\core_ffc_main"
             
-            bat(script: 'mv ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}')
+            bat(script: 'move ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT}')
           }
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           echo "test :  ${test}"
