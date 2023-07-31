@@ -67,6 +67,8 @@ pipeline {
           bat 'echo merged'
           echo "echo ${env.GIT_COMMIT} > ${Global.BASE_RESULT_PATH_WIN}\\commit_id.txt" 
           bat("xcopy ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT} /I /E /H /Y")
+
+          bat "echo new"
           // bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true).trim()
           // echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
       }
