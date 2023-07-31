@@ -25,8 +25,10 @@ pipeline {
       steps {
           // bat 'echo test'
           // echo "env:  ${env.getEnvironment()}"
-          def test = 1
-          bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true)
+          script{
+            test = 1
+            Global.GIT_COMMIT = bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true).trim()
+          }
           echo "Global.GIT_COMMIT :  ${Global.GIT_COMMIT}"
           echo "test :  ${test}"
           
