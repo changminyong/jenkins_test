@@ -28,7 +28,7 @@ pipeline {
           // echo "env:  ${env.getEnvironment()}"
           script{
             test = 1
-            Global.GIT_COMMIT = bat(script: 'git rev-parse --short=9 HEAD', returnStdout: true).trim()
+            Global.GIT_COMMIT = bat(script: '@echo off && git rev-parse --short=9 HEAD', returnStdout: true).trim()
             Global.BASE_RESULT_PATH_WIN = "C:\\Jenkins\\sanity_check\\base_results\\core_ffc_main"
             
           }
