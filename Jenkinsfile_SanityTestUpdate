@@ -2,8 +2,8 @@
 properties(
   [
     parameters([
-      booleanParam(defaultValue: false, description: 'if merged', name: 'IF_MERGED')
-      booleanParam(defaultValue: false, description: 'PR Number', name: 'PR_NUMBER')
+      booleanParam(defaultValue: false, description: 'if merged', name: 'IF_MERGED'),
+      booleanParam(defaultValue: false, description: 'PR Number', name: 'PR_NUMBER'),
       booleanParam(defaultValue: false, description: 'PR Meraged Date', name: 'PR_MERGED_DATE')
     ])
   ]
