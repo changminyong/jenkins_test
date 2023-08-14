@@ -15,6 +15,7 @@ class Global {
   static def BASE_RESULT_PATH_WIN = null
   static def UPDATE_CASE = 1
 }
+
 // PIPELINE
 pipeline {
   agent any
