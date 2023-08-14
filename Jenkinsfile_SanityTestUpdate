@@ -37,7 +37,7 @@ pipeline {
       
       steps {
           bat 'echo merged'
-          bat "(@echo commit_id : ${Global.GIT_COMMIT}&echo PR_numger : ${params.PR_NUMBER}&echo date : ${params.PR_MERGED_DATE}) > ${Global.BASE_RESULT_PATH_WIN}\\commit_id.txt"
+          bat "(@echo commit_id : ${Global.GIT_COMMIT}&echo PR_number : ${params.PR_NUMBER}&echo date : ${params.PR_MERGED_DATE}) > ${Global.BASE_RESULT_PATH_WIN}\\commit_id.txt"
           bat("xcopy ${Global.BASE_RESULT_PATH_WIN} ${Global.BASE_RESULT_PATH_WIN}_${Global.GIT_COMMIT} /I /E /H /Y")
       }
     }
